@@ -6,19 +6,20 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250409155304">
+	<link rel="stylesheet" href="css/style.min.css?_v=20250410110631">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 
-<body>
+<body class="page-load">
 	<div class="wrapper">
 		<header class="header" data-scroll-show>
 			<div class="header__container">
 				<button class="btn-modal-email _icon-email" type="button"></button>
 
-				<a href="" class="header__logo"><img src="img/logo.svg" alt="logo"></a>
+				<a href="/" class="header__logo"><img src="img/logo.svg" alt="logo"></a>
 
 
 				<div class="header__menu menu">
@@ -26,7 +27,7 @@
 						<ul class="menu__list">
 							<li class="menu__item"><a href="" class="menu__link">Партнери</a></li>
 							<li class="menu__item"><a href="" class="menu__link">Бренди</a></li>
-							<li class="menu__item"><a href="" class="menu__link">Про нас</a></li>
+							<li class="menu__item"><a href="/about-us.html" class="menu__link">Про нас</a></li>
 							<li class="menu__item"><a href="" class="menu__link">Блог</a></li>
 							<li class="menu__item"><a href="" class="menu__link">Рецепти</a></li>
 							<li class="menu__item"><a href="" class="menu__link">Контакти</a></li>
@@ -45,7 +46,7 @@
 			</div>
 		</header>
 		<main class="page">
-			<div class="hero">
+			<section class="hero" style="background-image: url(img/hero-bg.webp);">
 
 				<h1 class="hero__title">дистриб’ютор алкоголю в Україні</h1>
 				<div class="hero__brands">
@@ -183,7 +184,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 
 			<section class="section distribution">
 				<div class="distribution__container">
@@ -433,7 +434,7 @@
 				</div>
 			</section>
 
-			<section class="section spollers-section">
+			<section class="section spollers-section" data-watch data-watch-once data-watch-threshold="0.8">
 				<div class="spollers-section__container">
 
 					<h2 class="spollers-section__title section-title">Як стати партнером?</h2>
@@ -458,10 +459,11 @@
 
 					<div class="spollers-section-bottom">
 						<div class="logo">
-							<img src="img/icon-logo.svg" alt="Image">
+							<img src="img/icon-logo.svg" alt="marketwin logo">
 						</div>
 						<div class="logo-text">
-							<img src="img/marketwin-gradient.svg" alt="Image">
+							<!-- <img src="img/marketwin-gradient.svg" alt="Image"> -->
+							marketwin
 						</div>
 						<button type="button" class="btn btn-default btn-red mob-w">
 							<span>Надіслати запит на партнерство</span>
@@ -470,7 +472,6 @@
 					</div>
 				</div>
 			</section>
-
 
 			<section class="section blog">
 				<div class="blog__container">
@@ -792,8 +793,181 @@
 				</div>
 			</div>
 		</footer>
+		<div class="loader-container" id="loader">
+			<div class="loader-group">
+				<div class="drink-glass">
+
+				</div>
+				<div class="drink-level"></div>
+			</div>
+			<style>
+				html {
+					&:has(.page-load) {
+						overflow: hidden;
+					}
+				}
+
+				.loader-container {
+					position: fixed;
+					top: 0;
+					left: 0;
+					width: 100vw;
+					height: 100vh;
+					background-color: #000;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					z-index: 9999;
+				}
+
+				.loader-group {
+					position: relative;
+					display: block;
+					width: 200px;
+				}
+
+				.drink-glass {
+					border: 4px solid rgba(255, 255, 255, 0.18);
+					background:
+						linear-gradient(to right,
+							rgba(255, 255, 255, 0.1) 5%,
+							rgba(255, 255, 255, 0.17)21%,
+							rgba(255, 255, 255, 0.15)30%,
+							rgba(255, 255, 255, 0.1) 50%,
+							rgba(255, 255, 255, 0.05) 70%,
+							rgba(255, 255, 255, 0.05) 89%,
+							rgba(255, 255, 255, 0.1) 95%);
+					display: block;
+					width: 100px;
+					height: 170px;
+					margin: 0 50px;
+					border-radius: 0 0 30px 30px;
+					border-top: none;
+				}
+
+				.drink-level {
+					z-index: -1;
+					position: absolute;
+					top: 0;
+					left: 50px;
+					display: block;
+					width: 108px;
+					height: 144px;
+					background: linear-gradient(rgb(183, 43, 23), rgb(183, 43, 23));
+					background-image:
+						linear-gradient(rgb(132, 0, 0), rgb(183, 43, 23) 4px, rgb(183, 43, 23), rgb(132, 0, 0));
+					background-repeat:
+						no-repeat;
+					background-position:
+						0 0;
+					background-size:
+						100% 100%;
+					border-radius: 2px 2px 30px 30px;
+					transform-origin: bottom;
+					transform: translateY(154px);
+					max-height: 0%;
+					animation: fillup 1.5s ease-out forwards;
+					overflow: hidden;
+				}
+
+				.drink-level:after {
+					content: "";
+					display: block;
+					width: 108px;
+					height: 144px;
+					background-image:
+						radial-gradient(rgba(255, 255, 255, 0) 30%,
+							rgba(255, 255, 255, 0.2) 35%,
+							rgba(255, 255, 255, 0.2) 45%,
+							rgba(255, 255, 255, 0) 50%),
+						radial-gradient(rgba(255, 255, 255, 0) 30%,
+							rgba(255, 255, 255, 0.2) 35%,
+							rgba(255, 255, 255, 0.2) 45%,
+							rgba(255, 255, 255, 0) 50%),
+						radial-gradient(rgba(255, 255, 255, 0) 30%,
+							rgba(255, 255, 255, 0.2) 35%,
+							rgba(255, 255, 255, 0.2) 45%,
+							rgba(255, 255, 255, 0) 50%),
+						radial-gradient(rgba(255, 255, 255, 0) 30%,
+							rgba(255, 255, 255, 0.2) 35%,
+							rgba(255, 255, 255, 0.2) 45%,
+							rgba(255, 255, 255, 0) 50%);
+					background-repeat:
+						no-repeat;
+					background-position:
+						70px 20px,
+						60px 100px,
+						50px 70px,
+						20px 50px;
+					background-size:
+						20px 20px,
+						10px 10px,
+						20px 20px,
+						20px 20px;
+					border-radius: 2px 2px 30px 30px;
+					transform-origin: bottom;
+					animation:
+						bubbles 1.7s ease-out forwards infinite,
+						bobbing 800ms ease-in-out infinite alternate;
+				}
+
+				@keyframes fillup {
+					0% {
+						max-height: 0px;
+						transform: translateY(174px);
+					}
+
+					100% {
+						max-height: 144px;
+						transform: translateY(30px);
+					}
+				}
+
+				@keyframes bubbles {
+					0% {
+						transform: translateY(100px);
+					}
+
+					100% {
+						transform: translateY(-100px);
+					}
+				}
+
+				@keyframes bobbing {
+					0% {
+						margin-left: -8px;
+					}
+
+					100% {
+						margin-left: 8px;
+					}
+				}
+			</style>
+		</div>
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+				const loader = document.getElementById("loader");
+				loader.style.display = "none";
+				document.body.classList.remove("page-load");
+			});
+		</script>
+		<div id="popup" aria-hidden="true" class="popup">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<button data-close type="button" class="popup__close">
+						<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square" />
+							<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square" />
+						</svg>
+					</button>
+					<div class="popup__text">
+						Popup content
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	<script src="js/app.min.js?_v=20250409155304"></script>
+	<script src="js/app.min.js?_v=20250410110631"></script>
 </body>
 
 </html>
