@@ -4638,6 +4638,14 @@
             }));
         }
     }), 0);
+    document.addEventListener("DOMContentLoaded", (function() {
+        const images = document.querySelectorAll(".hero__img img");
+        images.forEach((img => {
+            img.setAttribute("hidden", true);
+        }));
+        const randomIndex = Math.floor(Math.random() * images.length);
+        images[randomIndex].removeAttribute("hidden");
+    }));
     window["FLS"] = true;
     isWebp();
     menuInit();
