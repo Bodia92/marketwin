@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250411110344">
+	<link rel="stylesheet" href="css/style.min.css?_v=20250411164011">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,12 +25,12 @@
 				<div class="header__menu menu">
 					<nav class="menu__body">
 						<ul class="menu__list">
-							<li class="menu__item"><a href="partners.html" class="menu__link">Партнери</a></li>
-							<li class="menu__item"><a href="brands.html" class="menu__link">Бренди</a></li>
-							<li class="menu__item"><a href="about-us.html" class="menu__link">Про нас</a></li>
-							<li class="menu__item"><a href="blog.html" class="menu__link">Блог</a></li>
+							<li class="menu__item"><a href="/partners.html" class="menu__link">Партнери</a></li>
+							<li class="menu__item"><a href="/brands.html" class="menu__link">Бренди</a></li>
+							<li class="menu__item"><a href="/about-us.html" class="menu__link">Про нас</a></li>
+							<li class="menu__item"><a href="/blog.html" class="menu__link">Блог</a></li>
 							<li class="menu__item"><a href="" class="menu__link">Рецепти</a></li>
-							<li class="menu__item"><a href="contact.html" class="menu__link">Контакти</a></li>
+							<li class="menu__item"><a href="/contact.html" class="menu__link">Контакти</a></li>
 						</ul>
 					</nav>
 					<button class="btn btn-default btn-call" type="button">
@@ -160,19 +160,154 @@
 					</div>
 				</div>
 			</section>
+
+
+			<div class="page-brands">
+				<div class="page-brands__container">
+					<div class="brands-search">
+						<div class="brands-search__fast">
+							<div class="brands-search__title">Швидкий пошук</div>
+
+							<div class="search">
+								<input id="brands-search" type="search" placeholder="Hunkey bannister" autocomplete="off" class="input">
+
+								<button class="btn btn-default btn-red" id="brands-search-btn" type="button">
+									<span>Знайти</span>
+									<span class="icon-arrow _icon-arrow-right"></span>
+								</button>
+							</div>
+						</div>
+						<div class="brands-search__categories">
+							<div class="brands-search__title">Категорія</div>
+							<div class="form-group">
+								<select name="search-categories" id="search-categories" data-show-selected>
+									<option value="all-brands" selected>Всі напої</option>
+									<option value="whiskey">Віскі</option>
+									<option value="brandy">Бренді</option>
+									<option value="wine">Вино</option>
+								</select>
+							</div>
+						</div>
+						<div class="brands-search__alphabet">
+							<div class="brands-search__title">Пошук за алфавітом</div>
+
+							<ul class="alphabet-filter" id="brands-alphabet-filter">
+							</ul>
+						</div>
+					</div>
+					<div class="brands-list" id="brands-list">
+						<div class="brand-group" data-filter="B">
+							<div class="brand-group__letter">B</div>
+
+							<div class="brand-group__list">
+
+								<a class="item-partners" href="#" js-filter-title="Ballantine" title="Ballantine">
+									<div class="item-partners__rubric" data-brands-rubric="whiskey">Віскі</div>
+
+									<div class="item-partners__img">
+										<img src="img/brands/Ballantine-black.svg" alt="Ballantine">
+									</div>
+									<div class="item-partners__name" href="#">
+										<span>Ballantine</span>
+										<span class="icon-arrow _icon-arrow-right"></span>
+									</div>
+								</a>
+								<a class="item-partners" href="#" js-filter-title="bacardi" title="bacardi">
+									<div class="item-partners__rubric" data-brands-rubric="brandy">Бренді</div>
+									<div class="item-partners__img">
+										<img src="img/brands/bacardi.svg" alt="bacardi">
+									</div>
+									<div class="item-partners__name" href="#">
+										<span>bacardi</span>
+										<span class="icon-arrow _icon-arrow-right"></span>
+									</div>
+								</a>
+							</div>
+						</div>
+
+						<div class="brand-group" data-filter="H">
+							<div class="brand-group__letter">H</div>
+
+							<div class="brand-group__list">
+								<a class="item-partners" href="#" js-filter-title="hankey bannister" title="hankey bannister">
+									<div class="item-partners__rubric" data-brands-rubric="wine">Вино</div>
+									<div class="item-partners__img">
+										<img src="img/brands/hankey-bannister.webp" alt="hankey-bannister">
+									</div>
+									<div class="item-partners__name" href="#">
+										<span>hankey bannister</span>
+										<span class="icon-arrow _icon-arrow-right"></span>
+									</div>
+								</a>
+
+							</div>
+						</div>
+
+						<div class="brand-group" data-filter="M">
+							<div class="brand-group__letter">M</div>
+
+							<div class="brand-group__list">
+								<a class="item-partners" href="#" js-filter-title="martini" title="martini">
+									<div class="item-partners__rubric" data-brands-rubric="wine">Вино</div>
+									<div class="item-partners__img">
+										<img src="img/brands/martini.svg" alt="martini">
+									</div>
+									<div class="item-partners__name" href="#">
+										<span>martini</span>
+										<span class="icon-arrow _icon-arrow-right"></span>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="brand-group" data-filter="J">
+							<div class="brand-group__letter">J</div>
+
+							<div class="brand-group__list">
+								<a class="item-partners" href="#" js-filter-title="jameson" title="jameson">
+									<div class="item-partners__rubric" data-brands-rubric="whiskey">Віскі</div>
+									<div class="item-partners__img">
+										<img src="img/brands/jameson.webp" alt="jameson">
+									</div>
+									<div class="item-partners__name" href="#">
+										<span>jameson</span>
+										<span class="icon-arrow _icon-arrow-right"></span>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="brand-group" data-filter="Z">
+							<div class="brand-group__letter">Z</div>
+
+							<div class="brand-group__list">
+								<a class="item-partners" href="#" js-filter-title="zonin" title="zonin">
+									<div class="item-partners__rubric" data-brands-rubric="whiskey">Віскі</div>
+									<div class="item-partners__img">
+										<img src="img/brands/zonin.webp" alt="zonin">
+									</div>
+									<div class="item-partners__name" href="#">
+										<span>zonin</span>
+										<span class="icon-arrow _icon-arrow-right"></span>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</main>
 		<footer class="footer">
 			<div class="footer__container">
 				<div class="footer__top">
-					<a href="/marketwin" class="footer__logo"><img src="img/logo.svg" alt="logo"></a>
+					<a href="" class="footer__logo"><img src="img/logo.svg" alt="logo"></a>
 					<nav class="footer__menu">
 						<ul>
-							<li><a href="partners.html">Партнери</a></li>
-							<li><a href="brands.html">Бренди</a></li>
-							<li><a href="about-us.html">Про нас</a></li>
-							<li><a href="blog.html">Блог</a></li>
+							<li><a href="/partners.html">Партнери</a></li>
+							<li><a href="/brands.html">Бренди</a></li>
+							<li><a href="/about-us.html">Про нас</a></li>
+							<li><a href="/blog.html">Блог</a></li>
 							<li><a href="#">Рецепти</a></li>
-							<li><a href="contact.html">Контакти</a></li>
+							<li><a href="/contact.html">Контакти</a></li>
 						</ul>
 					</nav>
 					<button class="btn btn-default btn-red" type="button">
@@ -365,7 +500,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20250411110344"></script>
+	<script src="js/app.min.js?_v=20250411164011"></script>
 </body>
 
 </html>
