@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250411164609">
+	<link rel="stylesheet" href="css/style.min.css?_v=20250414164619">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +33,7 @@
 							<li class="menu__item"><a href="contact.html" class="menu__link">Контакти</a></li>
 						</ul>
 					</nav>
-					<button class="btn btn-default btn-call" type="button">
+					<button class="btn btn-default btn-call" type="button" data-popup="#contact-us">
 						<span>Зв’язатись з нами</span>
 						<span class="icon-arrow _icon-arrow-right"></span>
 					</button>
@@ -185,6 +185,7 @@
 									<option value="whiskey">Віскі</option>
 									<option value="brandy">Бренді</option>
 									<option value="wine">Вино</option>
+									<option value="water">Вода</option>
 								</select>
 							</div>
 						</div>
@@ -207,7 +208,7 @@
 									<div class="item-partners__img">
 										<img src="img/brands/Ballantine-black.svg" alt="Ballantine">
 									</div>
-									<div class="item-partners__name" href="#">
+									<div class="item-partners__name">
 										<span>Ballantine</span>
 										<span class="icon-arrow _icon-arrow-right"></span>
 									</div>
@@ -217,11 +218,29 @@
 									<div class="item-partners__img">
 										<img src="img/brands/bacardi.svg" alt="bacardi">
 									</div>
-									<div class="item-partners__name" href="#">
+									<div class="item-partners__name">
 										<span>bacardi</span>
 										<span class="icon-arrow _icon-arrow-right"></span>
 									</div>
 								</a>
+							</div>
+						</div>
+
+						<div class="brand-group" data-filter="E">
+							<div class="brand-group__letter">E</div>
+
+							<div class="brand-group__list">
+								<a class="item-partners" href="evian.html" js-filter-title="evian" title="evian">
+									<div class="item-partners__rubric" data-brands-rubric="water">Вода</div>
+									<div class="item-partners__img">
+										<img src="img/brands/evian.svg" alt="evian">
+									</div>
+									<div class="item-partners__name">
+										<span>evian</span>
+										<span class="icon-arrow _icon-arrow-right"></span>
+									</div>
+								</a>
+
 							</div>
 						</div>
 
@@ -234,7 +253,7 @@
 									<div class="item-partners__img">
 										<img src="img/brands/hankey-bannister.webp" alt="hankey-bannister">
 									</div>
-									<div class="item-partners__name" href="#">
+									<div class="item-partners__name">
 										<span>hankey bannister</span>
 										<span class="icon-arrow _icon-arrow-right"></span>
 									</div>
@@ -243,22 +262,6 @@
 							</div>
 						</div>
 
-						<div class="brand-group" data-filter="M">
-							<div class="brand-group__letter">M</div>
-
-							<div class="brand-group__list">
-								<a class="item-partners" href="#" js-filter-title="martini" title="martini">
-									<div class="item-partners__rubric" data-brands-rubric="wine">Вино</div>
-									<div class="item-partners__img">
-										<img src="img/brands/martini.svg" alt="martini">
-									</div>
-									<div class="item-partners__name" href="#">
-										<span>martini</span>
-										<span class="icon-arrow _icon-arrow-right"></span>
-									</div>
-								</a>
-							</div>
-						</div>
 						<div class="brand-group" data-filter="J">
 							<div class="brand-group__letter">J</div>
 
@@ -268,8 +271,42 @@
 									<div class="item-partners__img">
 										<img src="img/brands/jameson.webp" alt="jameson">
 									</div>
-									<div class="item-partners__name" href="#">
+									<div class="item-partners__name">
 										<span>jameson</span>
+										<span class="icon-arrow _icon-arrow-right"></span>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="brand-group" data-filter="M">
+							<div class="brand-group__letter">M</div>
+
+							<div class="brand-group__list">
+								<a class="item-partners" href="#" js-filter-title="martini" title="martini">
+									<div class="item-partners__rubric" data-brands-rubric="wine">Вино</div>
+									<div class="item-partners__img">
+										<img src="img/brands/martini.svg" alt="martini">
+									</div>
+									<div class="item-partners__name">
+										<span>martini</span>
+										<span class="icon-arrow _icon-arrow-right"></span>
+									</div>
+								</a>
+							</div>
+						</div>
+
+
+						<div class="brand-group" data-filter="P">
+							<div class="brand-group__letter">P</div>
+
+							<div class="brand-group__list">
+								<a class="item-partners" href="pogues.html" js-filter-title="pogues" title="pogues">
+									<div class="item-partners__rubric" data-brands-rubric="whiskey">Віскі</div>
+									<div class="item-partners__img">
+										<img src="img/brands/pogues.webp" alt="pogues">
+									</div>
+									<div class="item-partners__name">
+										<span>pogues</span>
 										<span class="icon-arrow _icon-arrow-right"></span>
 									</div>
 								</a>
@@ -284,7 +321,7 @@
 									<div class="item-partners__img">
 										<img src="img/brands/zonin.webp" alt="zonin">
 									</div>
-									<div class="item-partners__name" href="#">
+									<div class="item-partners__name">
 										<span>zonin</span>
 										<span class="icon-arrow _icon-arrow-right"></span>
 									</div>
@@ -310,7 +347,7 @@
 							<li><a href="contact.html">Контакти</a></li>
 						</ul>
 					</nav>
-					<button class="btn btn-default btn-red" type="button">
+					<button class="btn btn-default btn-red" type="button" data-popup="#contact-us">
 						<span>Зв’язатись з нами</span>
 						<span class="icon-arrow white-icon _icon-arrow-right"></span>
 					</button>
@@ -484,23 +521,104 @@
 				document.body.classList.remove("page-load");
 			});
 		</script>
-		<div id="popup" aria-hidden="true" class="popup">
+		<div id="contact-us" aria-hidden="true" class="popup">
 			<div class="popup__wrapper">
 				<div class="popup__content">
-					<button data-close type="button" class="popup__close">
-						<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square" />
-							<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square" />
-						</svg>
-					</button>
-					<div class="popup__text">
-						Popup content
+					<button data-close type="button" class="popup__close" data-value="close-popup"></button>
+
+					<div class="form">
+						<form class="popup-form" action="#" method="post">
+							<h3 class="form__title">Є запитання? напишіть нам</h3>
+
+							<div class="form__row">
+								<div class="form-group">
+									<label for="name">Ваше ім’я<span class="required">*</span></label>
+									<input id="name" type="text" name="form[]" placeholder="Ім’я" class="input" required>
+								</div>
+								<div class="form-group">
+									<label for="email">Ваш e-mail<span class="required">*</span></label>
+									<input id="email" type="email" name="form[]" placeholder="mail@gmail.com" class="input" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="message">Ваше повідомлення<span class="required">*</span></label>
+								<textarea name="message" id="message" class="input" placeholder="Опишіть коротко ваше запитання тут..." required></textarea>
+							</div>
+							<div class="form-bottom">
+								<button class="btn btn-default btn-red" type="submit">
+									<span>Надіслати запитання</span>
+									<span class="icon-arrow _icon-arrow-right white-icon"></span>
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="partners-form" aria-hidden="true" class="popup">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<button data-close type="button" class="popup__close" data-value="close-popup"></button>
+
+					<div class="form">
+						<form class="popup-form" action="#" method="post">
+							<h3 class="form__title">Хочете стати нашим партнером?</h3>
+							<div class="form__row">
+								<div class="form-group">
+									<label for="name">Ваше ім’я<span class="required">*</span></label>
+									<input id="name" type="text" name="form[]" placeholder="Ім’я" class="input" required>
+								</div>
+								<div class="form-group">
+									<label for="email">Ваш e-mail<span class="required">*</span></label>
+									<input id="email" type="email" name="form[]" placeholder="mail@gmail.com" class="input" required>
+								</div>
+
+								<div class="form-group">
+									<label for="phone">Номер телефону<span class="required">*</span></label>
+									<input id="phone" type="tel" name="form[]" placeholder="+38 (___) ___ __ __" class="input" required>
+								</div>
+								<div class="form-group">
+									<label for="company">Компанія</label>
+									<input id="company" type="text" name="form[]" placeholder="Назва компанії" class="input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="message">Ваше повідомлення<span class="required">*</span></label>
+								<textarea name="message" id="message" class="input" placeholder="Опишіть коротко ваше запитання тут..." required></textarea>
+							</div>
+							<div class="form-bottom">
+								<button class="btn btn-default btn-red" type="submit">
+									<span>Надіслати запит</span>
+									<span class="icon-arrow _icon-arrow-right white-icon"></span>
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="form-success" aria-hidden="true" class="popup">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<button data-close type="button" class="popup__close" data-value="close-popup"></button>
+					<div class="popup__success">
+						<div class="popup__inner">
+							<div class="popup__img">
+								<img src="img/icon-logo.svg" alt="logo icon">
+							</div>
+							<div class="popup__title">Дякуємо за довіру до MARKETWIN!</div>
+							<div class="popup__text">Ваш запит успішно надісланий! Ми переглянемо його якнайшвидше та надамо
+								відповідь у
+								найкоротші терміни.</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20250411164609"></script>
+	<script src="js/app.min.js?_v=20250414164619"></script>
 </body>
 
 </html>

@@ -4861,8 +4861,14 @@
             },
             on: {}
         });
-        if (document.querySelector(".exclusive__slider")) {
-            const exclusiveThumb = new swiper_core_Swiper(".exclusive-thumb__slider", {
+        const sliders = document.querySelectorAll(".exclusive__slider");
+        if (sliders.length) sliders.forEach(((slider, index) => {
+            const parent = slider.closest(".exclusive");
+            const thumbEl = parent.querySelector(".exclusive-thumb__slider");
+            const paginationEl = parent.querySelector(".swiper-pagination");
+            const prevEl = parent.querySelector(".swiper-button-prev");
+            const nextEl = parent.querySelector(".swiper-button-next");
+            const exclusiveThumb = new swiper_core_Swiper(thumbEl, {
                 modules: [ EffectFade ],
                 observer: true,
                 observeParents: true,
@@ -4871,7 +4877,7 @@
                 speed: 800,
                 effect: "fade"
             });
-            const exclusiveSlider = new swiper_core_Swiper(".exclusive__slider", {
+            const exclusiveSlider = new swiper_core_Swiper(slider, {
                 modules: [ Navigation, Pagination ],
                 observer: true,
                 observeParents: true,
@@ -4879,12 +4885,12 @@
                 spaceBetween: 0,
                 speed: 800,
                 pagination: {
-                    el: ".swiper-pagination",
+                    el: paginationEl,
                     clickable: true
                 },
                 navigation: {
-                    prevEl: ".swiper-button-prev",
-                    nextEl: ".swiper-button-next"
+                    prevEl,
+                    nextEl
                 },
                 thumbs: {
                     swiper: exclusiveThumb
@@ -4892,7 +4898,7 @@
             });
             exclusiveThumb.controller.control = exclusiveSlider;
             exclusiveSlider.controller.control = exclusiveThumb;
-        }
+        }));
         if (document.querySelector(".offers__slider")) {
             new swiper_core_Swiper(".offers__slider", {
                 modules: [ Navigation, Pagination, EffectFade ],
@@ -5084,11 +5090,13 @@
     }), 0);
     document.addEventListener("DOMContentLoaded", (function() {
         const images = document.querySelectorAll(".hero__img img");
-        images.forEach((img => {
-            img.setAttribute("hidden", true);
-        }));
-        const randomIndex = Math.floor(Math.random() * images.length);
-        images[randomIndex].removeAttribute("hidden");
+        if (images.length > 0) {
+            images.forEach((img => {
+                img.setAttribute("hidden", true);
+            }));
+            const randomIndex = Math.floor(Math.random() * images.length);
+            images[randomIndex].removeAttribute("hidden");
+        }
         const brandGroups = document.querySelectorAll("#brands-list .brand-group");
         const alphabetFilter = document.getElementById("brands-alphabet-filter");
         const brandsByLetter = document.querySelectorAll("#brands-list .brand-group");
@@ -5096,22 +5104,7 @@
         const searchInput = document.querySelector("#brands-search");
         const brandCards = document.querySelectorAll("#brands-list .item-partners");
         document.querySelectorAll("#brands-list .brand-group__list");
-        const select = document.getElementById("search-categories");
         const filterSet = new Set;
-        select.addEventListener("change", (function() {
-            const selectedValue = this.value;
-            brandGroups.forEach((group => {
-                const brandItems = group.querySelectorAll(".item-partners");
-                let hasVisibleItems = false;
-                brandItems.forEach((item => {
-                    const itemType = item.querySelector("[data-brands-rubric]")?.dataset.brandsRubric;
-                    const shouldShow = selectedValue === "all-brands" || selectedValue === itemType;
-                    item.classList.toggle("d-none", !shouldShow);
-                    if (shouldShow) hasVisibleItems = true;
-                }));
-                group.classList.toggle("d-none", !hasVisibleItems);
-            }));
-        }));
         if (!alphabetFilter) return;
         brandGroups.forEach((group => {
             const filter = group.getAttribute("data-filter");
