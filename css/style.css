@@ -1278,6 +1278,30 @@ h4 {
     transform: translateX(0)
   }
 }
+@-webkit-keyframes heroDecor {
+  from {
+    opacity: 0;
+    -webkit-transform: translate(-50%,-50%) scale(.6);
+    transform: translate(-50%,-50%) scale(.6)
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate(-50%,-50%) scale(1);
+    transform: translate(-50%,-50%) scale(1)
+  }
+}
+@keyframes heroDecor {
+  from {
+    opacity: 0;
+    -webkit-transform: translate(-50%,-50%) scale(.6);
+    transform: translate(-50%,-50%) scale(.6)
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate(-50%,-50%) scale(1);
+    transform: translate(-50%,-50%) scale(1)
+  }
+}
 .header {
   position: fixed;
   z-index: 10000;
@@ -1427,8 +1451,11 @@ h4 {
   top: 50%;
   left: 50%;
   width: 100%;
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%)
+  -webkit-transform: translate(-50%,-50%) scale(.6);
+  transform: translate(-50%,-50%) scale(.6);
+  opacity: 0;
+  -webkit-animation: heroDecor 1.2s forwards .3s;
+  animation: heroDecor 1.2s forwards .3s
 }
 .hero .hero__decor img {
   width: 100%;
