@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250416154022">
+	<link rel="stylesheet" href="css/style.min.css?_v=20250417173259">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -180,13 +180,24 @@
 						<div class="brands-search__categories">
 							<div class="brands-search__title">Категорія</div>
 							<div class="form-group">
-								<select class="custom-select" name="search-categories" id="search-categories">
-									<option value="all-brands" selected>Всі напої</option>
-									<option value="whiskey">Віскі</option>
-									<option value="brandy">Бренді</option>
-									<option value="wine">Вино</option>
-									<option value="water">Вода</option>
-								</select>
+								<!-- <select class="custom-select" name="search-categories" id="search-categories">
+                                    <option value="all-brands" selected>Всі напої</option>
+                                    <option value="whiskey">Віскі</option>
+                                    <option value="brandy">Бренді</option>
+                                    <option value="wine">Вино</option>
+                                    <option value="water">Вода</option>
+                                </select> -->
+
+								<div class="custom-select-wrapper" id="search-categories-wrapper">
+									<div class="custom-select-trigger">Всі напої</div>
+									<div class="custom-options">
+										<div class="custom-option selected" data-value="all-brands">Всі напої</div>
+										<div class="custom-option" data-value="whiskey">Віскі</div>
+										<div class="custom-option" data-value="brandy">Бренді</div>
+										<div class="custom-option" data-value="wine">Вино</div>
+										<div class="custom-option" data-value="water">Вода</div>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="brands-search__alphabet">
@@ -618,7 +629,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20250416154022"></script>
+	<script src="js/app.min.js?_v=20250417173259"></script>
 </body>
 
 </html>

@@ -4720,20 +4720,34 @@
         const brandGroupsGrid = document.querySelectorAll("#brands-list .brand-group__list");
         const searchInput = document.querySelector("#brands-search");
         const searchButton = document.querySelector("#brands-search-btn");
-        const select = document.getElementById("search-categories");
-        if (select) select.addEventListener("change", (function() {
-            const selectedValue = this.value;
-            document.querySelectorAll(".brand-group").forEach((group => {
-                const brandItems = group.querySelectorAll(".item-partners");
-                let hasVisibleItems = false;
-                brandItems.forEach((item => {
-                    const itemType = item.querySelector("[data-brands-rubric]")?.dataset.brandsRubric;
-                    const shouldShow = selectedValue === "all-brands" || selectedValue === itemType;
-                    item.classList.toggle("d-none", !shouldShow);
-                    if (shouldShow) hasVisibleItems = true;
+        const wrapper = document.getElementById("search-categories-wrapper");
+        const trigger = wrapper.querySelector(".custom-select-trigger");
+        const options = wrapper.querySelectorAll(".custom-option");
+        trigger.addEventListener("click", (() => {
+            wrapper.classList.toggle("open");
+        }));
+        options.forEach((option => {
+            option.addEventListener("click", (() => {
+                wrapper.querySelector(".custom-option.selected")?.classList.remove("selected");
+                option.classList.add("selected");
+                trigger.textContent = option.textContent;
+                wrapper.classList.remove("open");
+                const selectedValue = option.dataset.value;
+                document.querySelectorAll(".brand-group").forEach((group => {
+                    const brandItems = group.querySelectorAll(".item-partners");
+                    let hasVisibleItems = false;
+                    brandItems.forEach((item => {
+                        const itemType = item.querySelector("[data-brands-rubric]")?.dataset.brandsRubric;
+                        const shouldShow = selectedValue === "all-brands" || selectedValue === itemType;
+                        item.classList.toggle("d-none", !shouldShow);
+                        if (shouldShow) hasVisibleItems = true;
+                    }));
+                    group.classList.toggle("d-none", !hasVisibleItems);
                 }));
-                group.classList.toggle("d-none", !hasVisibleItems);
             }));
+        }));
+        document.addEventListener("click", (e => {
+            if (!wrapper.contains(e.target)) wrapper.classList.remove("open");
         }));
         if (brandGroups.length > 0 && alphabetFilter) {
             const filterSet = new Set;

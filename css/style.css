@@ -555,6 +555,85 @@ label:not(:last-child) {
   outline: 0;
   border-color: var(--primary)
 }
+.custom-select-wrapper {
+  position: relative;
+  width: 100%;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none
+}
+.custom-select-trigger {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: .625rem .75rem .625rem 1.25rem;
+  gap: .625rem;
+  min-height: 3rem;
+  color: inherit;
+  text-align: left;
+  border: 1px solid var(--bullet-color);
+  background-color: var(--white-color);
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  border-radius: 0;
+  cursor: pointer;
+  min-width: 200px
+}
+.custom-select-trigger>* {
+  flex: 1 1 auto
+}
+.custom-select-trigger:after {
+  content: "";
+  margin-left: auto;
+  align-self: stretch;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  transition: all .3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 12 12\" fill=\"none\"><g clip-path=\"url%28%23clip0_130_2133%29\"><path d=\"M10.7998 7.2L9.9598 6.36L6.5998 9.72L6.5998 -1.83588e-07L5.39981 -2.36041e-07L5.3998 9.72L2.03981 6.36L1.1998 7.2L5.9998 12L10.7998 7.2Z\" fill=\"white\"/></g></svg>")
+}
+.open .custom-select-trigger:after {
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg)
+}
+.custom-options {
+  position: absolute;
+  top: calc(100% - .0625rem);
+  left: 0;
+  right: 0;
+  background-color: var(--white-color);
+  border: 1px solid var(--bullet-color);
+  display: none;
+  z-index: 5
+}
+.custom-option {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  padding: .75rem 1.25rem;
+  color: inherit;
+  cursor: pointer
+}
+.custom-option:not(:last-child) {
+  border-bottom: 1px solid var(--bullet-color)
+}
+.custom-option.selected {
+  background: var(--primary);
+  color: var(--white-color)
+}
+.custom-select-wrapper.open .custom-options {
+  display: block
+}
 .menu {
   display: flex;
   align-items: center;
@@ -5181,6 +5260,10 @@ h4 {
     animation: arrowMove 1s forwards linear
   }
   .select__option:hover {
+    background: var(--primary);
+    color: var(--white-color)
+  }
+  .custom-option:hover {
     background: var(--primary);
     color: var(--white-color)
   }
