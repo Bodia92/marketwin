@@ -4721,12 +4721,12 @@
         const searchInput = document.querySelector("#brands-search");
         const searchButton = document.querySelector("#brands-search-btn");
         const wrapper = document.getElementById("search-categories-wrapper");
-        const trigger = wrapper.querySelector(".custom-select-trigger");
-        const options = wrapper.querySelectorAll(".custom-option");
-        trigger.addEventListener("click", (() => {
+        const trigger = wrapper?.querySelector(".custom-select-trigger");
+        const options = wrapper?.querySelectorAll(".custom-option");
+        if (trigger) trigger.addEventListener("click", (() => {
             wrapper.classList.toggle("open");
         }));
-        options.forEach((option => {
+        if (options?.length) options.forEach((option => {
             option.addEventListener("click", (() => {
                 wrapper.querySelector(".custom-option.selected")?.classList.remove("selected");
                 option.classList.add("selected");
@@ -4747,7 +4747,7 @@
             }));
         }));
         document.addEventListener("click", (e => {
-            if (!wrapper.contains(e.target)) wrapper.classList.remove("open");
+            if (wrapper && !wrapper.contains(e.target)) wrapper.classList.remove("open");
         }));
         if (brandGroups.length > 0 && alphabetFilter) {
             const filterSet = new Set;
@@ -4803,6 +4803,34 @@
             }));
             searchButton.addEventListener("click", filterBrands);
         }
+        document.addEventListener("click", (function(event) {
+            const target = event.target;
+            const mapTrigger = target.closest(".js-map-trigger");
+            const isCloseButton = target.closest(".js-map-close");
+            const isInsideModal = target.closest(".js-map-project");
+            if (mapTrigger) {
+                const targetModalId = mapTrigger.getAttribute("data-modal");
+                const targetModal = document.getElementById(targetModalId);
+                document.querySelectorAll(".js-map-trigger.active, .js-map-project.active").forEach((el => el.classList.remove("active")));
+                document.querySelectorAll(`.js-map-trigger[data-modal="${targetModalId}"]`).forEach((trigger => {
+                    trigger.classList.add("active");
+                    const list = trigger.closest(".js-map-list");
+                    if (list) trigger.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest"
+                    });
+                }));
+                if (targetModal) targetModal.classList.add("active");
+                return;
+            }
+            if (isCloseButton) {
+                const modal = isCloseButton.closest(".js-map-project");
+                if (modal) modal.classList.remove("active");
+                document.querySelectorAll(".js-map-trigger.active").forEach((button => button.classList.remove("active")));
+                return;
+            }
+            if (!isInsideModal && !mapTrigger) document.querySelectorAll(".js-map-trigger.active, .js-map-project.active").forEach((el => el.classList.remove("active")));
+        }));
     }));
     window["FLS"] = true;
     isWebp();
